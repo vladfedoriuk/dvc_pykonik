@@ -77,11 +77,11 @@ dvc push
 ```bash
 git log --oneline
 ```
-- Checkout one commit before:
+- Checkout the `data.dvc` file one commit before:
 ```bash
-git checkout HEAD~1
+git checkout HEAD~1 data.dvc
 ```
-- Show data directory:
+- Show data directory - you will notice that the data didn't change:
 ```bash
 ls -lh data
 ```
@@ -93,9 +93,9 @@ dvc checkout
 ```bash
 ls -lh data
 ```
-- Checkout one commit ahead:
+- Checkout the `data.dvc` one commit ahead:
 ```bash
-git checkout master
+git checkout <commit hash> data.dvc
 ```
 - Log the commits
 ```bash
@@ -111,23 +111,3 @@ ls -lh data
 ```
 
 ### Using DVC as data registry
-
-- List the data files from the remote repository
-```bash
-dvc list https://github.com/vladfedoriuk/dvc_showcase
-```
-- [Data access docs](https://dvc.org/doc/start/data-management/data-and-model-access)
-
-- Import the data from the remote repository
-```bash
-dvc import https://github.com/vladfedoriuk/dvc_showcase  -o data_1/
-# To import files, we must be inside the DVC repo
-```
-
-- Update the imported files
-```bash
-dvc update data_1.dvc
-# We can always checkout the newest version of the data
-```
-
-- [Python API docs](https://dvc.org/doc/api-reference)
