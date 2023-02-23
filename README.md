@@ -34,6 +34,7 @@ ls -i data
 - Add a remote storage:
 ```bash
 dvc remote add -d storage gdrive://<folder-id>
+# folder-id = 1aTnFtB98UyhhNadsWfF20WiAExICWLlN
 # -d flag sets the default remote storage
 # The .dvc/config file will be updated
 ```
