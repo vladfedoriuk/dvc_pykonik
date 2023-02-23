@@ -111,3 +111,25 @@ ls -lh data
 ```
 
 ### Using DVC as data registry
+
+- We can easily access data stored on some remote repository
+```bash
+dvc list https://github.com/iterative/dataset-registry get-started
+```
+
+- Also, we can import some DVC tracked data from external project
+```bash
+ dvc import https://github.com/iterative/dataset-registry              get-started/data.xml -o data.xml
+```
+   - Notice some differences between `data.xml.dvc` and `.dvc` files created so far.
+   - This allows us to bring in changes from the data source later using `dvc update`
+
+- Let's track those data:
+```bash
+git add .gitignore data.xml.dvc
+git commit -m "Track external data"
+```
+- Let's update the data
+```bash
+dvc update data.xml.dvc
+```
